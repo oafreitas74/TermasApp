@@ -1,0 +1,44 @@
+﻿@model TermasApp.Models.PrescricaoModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PrescricaoModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="IdAquista" />
+            <div class="form-group">
+                <label asp-for="IdTipoTratamento" class="control-label"></label>
+                <select asp-for="IdTipoTratamento" class="form-control selectpicker" data-live-search="true" asp-items="ViewBag.LTipoTratamento">
+                    <option value="" disabled selected>Tratamento</option>
+                </select>
+                <span asp-validation-for="IdTipoTratamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NTratamentos" class="control-label"></label>
+                <input asp-for="NTratamentos" class="form-control" />
+                <span asp-validation-for="NTratamentos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

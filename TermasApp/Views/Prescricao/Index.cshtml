@@ -1,0 +1,99 @@
+﻿@using TermasApp.IRepository
+@model IEnumerable<TermasApp.Models.PrescricaoModel>
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+@inject IFuncionarioRepository _funcionarioRepository
+@inject IAquistaRepository _aquistaRepository
+@inject IConsultaRepository _consultaRepository
+@inject ITipoTratamentoRepository _tipoTratamentoRepository
+@inject ITipoConsultaRepository _tipoConsultaRepository
+@inject ITratamentoRepository _tratamentoRepository
+
+@{
+    int idUserOrig = -1;
+    string tipoFuncionario = "";
+    string posto = "";
+
+    string aquista;
+    string medico;
+    string tipoConsulta;
+    string tipoTratamento;
+    int marcados;
+    if (_signInManager.IsSignedIn(User))
+    {
+        idUserOrig = Int32.Parse(User.FindFirst("IdUserOrig").Value);
+        tipoFuncionario = await _funcionarioRepository.GetTipolFuncionario(idUserOrig);
+        posto = await _funcionarioRepository.GetPostolFuncionario(idUserOrig);
+    }
+}
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <h4 class="display-4 text-primary">Prescrições</h4>
+        </div>
+    </div>
+
+    <br />
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" id="dataTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Tratamento</th>
+                    <th>Consulta</th>
+                    <th>Aquista</th>
+                    <th>Médico</th>
+                    <th>Nº Tratamentos</th>
+                    <th>Marcados</th>
+                    <th>Data</th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                @foreach (var item in Model)
+                {
+                    var consulta = await _consultaRepository.GetConsultaById(item.IdConsulta);
+                    aquista = await _aquistaRepository.GetNomeAquista(item.IdAquista);
+                    medico = await _funcionarioRepository.GetNomeFuncionario(consulta.IdMedico);
+                    tipoConsulta = await _tipoConsultaRepository.GetNomeTConsulta(consulta.IdTipoConsulta);
+                    tipoTratamento = await _tipoTratamentoRepository.GetNomeTTratamento(item.IdTipoTratamento);
+                    marcados = await _tratamentoRepository.TratamentosMarcados(item.Id);
+                    <tr>
+                        @if (tipoFuncionario == "Administrativo" || posto == "Chefe")
+                        {
+                            <td><a asp-action="Details" asp-controller="TipoTratamento" asp-route-id="@item.IdTipoTratamento" title="Detalhes">@tipoTratamento</a></td>
+                            <td><a asp-action="Details" asp-controller="TipoConsultas" asp-route-id="@consulta.IdTipoConsulta" title="Detalhes">@tipoConsulta</a></td>
+                            <td><a asp-action="Details" asp-controller="Aquistas" asp-route-id="@item.IdAquista" title="Detalhes">@aquista</a></td>
+                            <td><a asp-action="Details" asp-controller="Funcionarios" asp-route-id="@consulta.IdMedico" title="Detalhes">@medico</a></td>
+                        }
+                        else
+                        {
+                            <td>@tipoTratamento</td>
+                            <td>@tipoConsulta</td>
+                            <td>@aquista</td>
+                            <td>@medico</td>
+                        }
+                        <td>@item.NTratamentos</td>
+                        <td>@marcados</td>
+                        <td>@item.Data</td>
+                        <td>
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning mx-1"><i class="fas fa-pencil-alt" title="Editar"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger mx-1"><i class="fas fa-trash-alt" title="Eliminar"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Nâo exitem dados</p>
+    }
+</div>

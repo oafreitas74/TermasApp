@@ -1,0 +1,64 @@
+﻿@using TermasApp.IRepository
+@model TermasApp.Models.PrescricaoModel
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+@inject IFuncionarioRepository _funcionarioRepository
+@inject IAquistaRepository _aquistaRepository
+@inject IConsultaRepository _consultaRepository
+
+@{
+
+    int idUserOrig = -1;
+    string tipoFuncionario = "";
+    string posto = "";
+    var consulta = await _consultaRepository.GetConsultaById(Model.IdConsulta);
+    string aquista = await _aquistaRepository.GetNomeAquista(consulta.IdAquista);
+    string medico = await _funcionarioRepository.GetNomeFuncionario(consulta.IdMedico);
+
+    if (_signInManager.IsSignedIn(User))
+    {
+        idUserOrig = Int32.Parse(User.FindFirst("IdUserOrig").Value);
+        tipoFuncionario = await _funcionarioRepository.GetTipolFuncionario(idUserOrig);
+        posto = await _funcionarioRepository.GetPostolFuncionario(idUserOrig);
+
+    }
+}
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h5>Prescricao de Tratamento para:</h5>
+<h4>@aquista</h4>
+<h5>Médico Responsável</h5>
+<h4>@medico</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdAquista" value="@consulta.IdAquista" />
+            <input type="hidden" asp-for="IdConsulta" />
+            <div class="form-group">
+                <label asp-for="IdTipoTratamento" class="control-label">Tratamento</label>
+                <select asp-for="IdTipoTratamento" class="form-control selectpicker" data-live-search="true" asp-items="ViewBag.LTipoTratamento">
+                    <option value="" disabled selected>Escolher..</option>
+                </select>
+                <span asp-validation-for="IdTipoTratamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NTratamentos" class="control-label"></label>
+                <input asp-for="NTratamentos" class="form-control" />
+                <span asp-validation-for="NTratamentos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,60 @@
+﻿@model TermasApp.Models.EquipamentoModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4>Criar Equipamentos </h4>
+<hr />
+<div class="row">
+    <div class="col-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="NomeInterno" class="control-label">Nome Interno</label>
+                    <input asp-for="NomeInterno" class="form-control" />
+                    <span asp-validation-for="NomeInterno" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="Marca" class="control-label"></label>
+                    <input asp-for="Marca" class="form-control" />
+                    <span asp-validation-for="Marca" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="Modelo" class="control-label"></label>
+                    <input asp-for="Modelo" class="form-control" />
+                    <span asp-validation-for="Modelo" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="NSerie" class="control-label">Nº Serie</label>
+                    <input asp-for="NSerie" class="form-control" />
+                    <span asp-validation-for="NSerie" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="DataFabrico" class="control-label">Data Fabrico</label>
+                    <input asp-for="DataFabrico" class="form-control" />
+                    <span asp-validation-for="DataFabrico" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-12">
+                    <label asp-for="Descricao" class="control-label"></label>
+                    <input asp-for="Descricao" class="form-control" />
+                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-light btn-icon-split">
+                    <span class="icon text-black-50">
+                        <i class="fas fa-reply-all"></i>
+                    </span>
+                    <span class="text">Voltar</span>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+

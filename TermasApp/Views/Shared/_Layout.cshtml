@@ -1,0 +1,78 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+
+@{
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<partial name="_Head" />
+<body id="page-top">
+    <header>
+       
+    </header>
+    <div id="wrapper">
+
+        <partial name="_Sidebar" />
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+
+                <partial name="_TopBar" />
+
+                <div class="container-fluid">
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                             @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span> &copy;TermasApp -  @DateTime.Now.Day/@DateTime.Now.Month/@DateTime.Now.Year - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Pronto para encerrar sua sessão?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Selecione "Logout" se estiver pronto para encerrar sua sessão atual</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" asp-controller="User" asp-action="Logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/cssjs/vendor/jquery/jquery.min.js"></script>
+    <script src="~/cssjs/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="~/cssjs/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/cssjs/js/sb-admin-2.min.js"></script>
+    <script src="~/cssjs/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/cssjs/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="~/cssjs/js/demo/datatables-demo.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

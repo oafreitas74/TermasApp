@@ -1,0 +1,46 @@
+﻿@using TermasApp.IRepository
+@inject IFuncionarioRepository _funcionarioRepository
+@inject IAquistaRepository _aquistaRepository
+@inject ITriagemRepository _triagemRepository
+
+@{
+
+    string aquista;
+    string enfermeiro;
+
+    var LTriagem = await _triagemRepository.GetAllTriagemDay();
+
+}
+
+
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Aquista</th>
+            <th>Enfermeiro</th>
+            <th>Hora</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        @foreach (var item in LTriagem)
+        {
+            aquista = await _aquistaRepository.GetNomeAquista(item.IdAquista);
+            enfermeiro = await _funcionarioRepository.GetNomeFuncionario(item.IdEnfermeiro);
+            <tr>
+                <td><a asp-controller="Aquistas" asp-action="Details" asp-route-id="@item.IdAquista" title="Detalhes">@aquista</a></td>
+                @if (enfermeiro != "")
+                {
+                    <td><a asp-controller="Funcionarios" asp-action="Details" asp-route-id="@item.IdEnfermeiro" title="Detalhes">@enfermeiro</a></td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                <td>@item.Hora</td>
+                <td>@item.Data</td>
+            </tr>
+        }
+    </tbody>
+</table>

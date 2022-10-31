@@ -1,0 +1,56 @@
+﻿@model TermasApp.Models.TratamentoModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="IdAquista" value="@ViewBag.IdAquista" />
+            <div class="form-group">
+                <label asp-for="IdPrescricao" class="control-label"></label>
+                <input asp-for="IdPrescricao" class="form-control" />
+                <span asp-validation-for="IdPrescricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdTerapeuta" class="control-label"></label>
+                <input asp-for="IdTerapeuta" class="form-control" />
+                <span asp-validation-for="IdTerapeuta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdTriagem" class="control-label"></label>
+                <input asp-for="IdTriagem" class="form-control" />
+                <span asp-validation-for="IdTriagem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hora" class="control-label"></label>
+                <input asp-for="Hora" class="form-control" />
+                <span asp-validation-for="Hora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observacoes" class="control-label"></label>
+                <input asp-for="Observacoes" class="form-control" />
+                <span asp-validation-for="Observacoes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

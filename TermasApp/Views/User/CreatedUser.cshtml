@@ -1,0 +1,76 @@
+﻿@model TermasApp.Models.CreatedUserModel
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<partial name="_Head" />
+<body style="background-image: linear-gradient(to right, #191970, #7FFFD4)">
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <div class="p-5" style="background-color: #191970">
+                        <div class="text-center text-white">
+                            <h2>Termas App</h2>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="text-center">
+                            <h3>Registo de Utilizador</h3>
+                        </div>
+                        <hr />
+                        <div class="form-group row">
+                            <div class="col-1"></div>
+                            <div class="col-4">
+
+                                <form asp-action="CreatedUser">
+                                    <input type="hidden" asp-for="IdUserOrig" />
+                                    <input type="hidden" asp-for="TipoUser" />
+
+                                    <div class="form-group">
+                                        <label asp-for="UserName" class="control-label"></label>
+                                        <input asp-for="UserName" class="form-control" />
+                                        <span asp-validation-for="UserName" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label asp-for="Password" class="control-label"></label>
+                                        <input asp-for="Password" class="form-control" />
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="ConfirmPassword" class="control-label"></label>
+                                        <input asp-for="ConfirmPassword" class="form-control" />
+                                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Guardar" class="btn btn-primary" />
+
+                                        <a asp-controller="Home" asp-action="Index" class="btn btn-light btn-icon-split">
+                                            <span class="icon text-black-50">
+                                                <i class="fas fa-reply-all"></i>
+                                            </span>
+                                            <span class="text">Voltar </span>
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="~/images/signup.png" class="img-fluid" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

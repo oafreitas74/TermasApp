@@ -1,0 +1,46 @@
+﻿@using TermasApp.IRepository
+@model TermasApp.Models.TriagemModel
+@inject IFuncionarioRepository _funcionarioRepository
+@inject IAquistaRepository _aquista
+@{
+    string enfermeiro = await _funcionarioRepository.GetNomeFuncionario(Model.IdEnfermeiro);
+    string aquista = await _aquista.GetNomeAquista(Model.IdAquista);
+}
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Enfermeiro
+        </dt>
+        <dd class = "col-sm-10">
+            @enfermeiro
+        </dd>
+        <dt class = "col-sm-2">
+            Aquista
+        </dt>
+        <dd class = "col-sm-10">
+            @aquista
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Hora)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Hora)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+    </dl>
+</div>
+

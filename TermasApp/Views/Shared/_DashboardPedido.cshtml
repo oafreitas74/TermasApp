@@ -1,0 +1,40 @@
+﻿@using TermasApp.IRepository
+@inject IPedidoRepository _pedidoRepository
+@inject IEquipamentoRepository _equipamentoRepository
+@inject IFuncionarioRepository _funcionarioRepository
+@{
+
+    string nomeInterno;
+    string tecnico;
+
+    var LPedidos = await _pedidoRepository.GetAllPedidos();
+}
+<table class="table table-bordered table-striped" id="dataTable" style="width:100%">
+    <thead>
+        <tr>
+            <th>Equipamento</th>
+            <th>Data Pedido</th>
+            <th>Avaria</th>
+            <th>Estado</th>
+            <th>Tecnico</th>
+            <th>Data Conclusao</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        @foreach (var item in LPedidos)
+        {
+            nomeInterno = await _equipamentoRepository.GetNomeEquipamento(item.IdEquipamento);
+            tecnico = await _funcionarioRepository.GetNomeFuncionario(item.IdTecnico);
+            <tr>
+                <td>@nomeInterno</td>
+                <td>@item.DataPedido</td>
+                <td>@item.Avaria</td>
+                <td>@item.Estado</td>
+                <td>@tecnico</td>
+                <td>@item.DataConclusao</td>
+                <td>@item.Valor</td>
+            </tr>
+        }
+    </tbody>
+</table>

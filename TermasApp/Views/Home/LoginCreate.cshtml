@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "LoginCreate";
+}
+
+<h2>Bem-vindo à TermasApp</h2>
+
+
+<div class="container">
+    <p>
+
+        @ViewBag.UserName<br />
+        O seu Login foi criado com sucesso, com os dados:<br />
+        UserName - @ViewBag.UserName<br />
+        Password - @ViewBag.Pass<br /><br />
+
+    </p>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-light btn-icon-split">
+        <span class="icon text-black-50">
+            <i class="fas fa-reply-all"></i>
+        </span>
+        <span class="text">Voltar</span>
+    </a>
+</div>

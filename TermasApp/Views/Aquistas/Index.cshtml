@@ -1,0 +1,90 @@
+﻿@using TermasApp.IRepository
+@model IEnumerable<TermasApp.Models.AquistaModel>
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+@inject IFuncionarioRepository _funcionarioRepository
+
+@{
+    int idUserOrig = -1;
+    string tipoFuncionario = "";
+    string posto = "";
+    if (_signInManager.IsSignedIn(User))
+    {
+        idUserOrig = Int32.Parse(User.FindFirst("IdUserOrig").Value);
+        tipoFuncionario = await _funcionarioRepository.GetTipolFuncionario(idUserOrig);
+        posto = await _funcionarioRepository.GetPostolFuncionario(idUserOrig);
+    }
+}
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <h4 class="display-4 text-primary">Aquistas</h4>
+        </div>
+        @if (tipoFuncionario == "Administrativo")
+        {
+            <div class="col-md-2">
+                <br />
+                <a asp-action="Create" class="btn btn-primary">Novo Aquista</a>
+            </div>
+        }
+    </div>
+    <br />
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" id="dataTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cartão Cidadão</th>
+                    <th>Nª S. Social</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    @if (tipoFuncionario == "Administrativo")
+                    {
+                        <th>Opções</th>
+                    }
+
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @if (tipoFuncionario == "Administrativo" || idUserOrig == item.Id || posto == "Chefe")
+                        {
+                            <td><a asp-action="Details" asp-route-id="@item.Id" title="Detalhes">@item.Nome</a></td>
+                        }
+                        else
+                        {
+                            <td>@item.Nome</td>
+                        }
+                        <td>@item.CC</td>
+                        <td>@item.NSSocial</td>
+                        <td>@item.Email</td>
+                        <td>@item.Telefone</td>
+                        <td>@item.Email</td>
+                        @if (tipoFuncionario == "Administrativo")
+                        {
+                            <td>
+                                <div class="w-100 btn-group" role="group">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning mx-1"><i class="fas fa-pencil-alt" title="Editar"></i></a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger mx-1"><i class="fas fa-trash-alt" title="Eliminar"></i></a>
+                                </div>
+                            </td>
+                        }
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Nâo exitem dados</p>
+    }
+</div>

@@ -1,0 +1,169 @@
+﻿@using TermasApp.IRepository
+@model TermasApp.Models.AquistaModel
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+@inject IFuncionarioRepository _funcionarioRepository
+@inject ITipoConsultaRepository _tipoConsultaRepository
+@inject ITratamentoRepository _tratamentoRepository
+@inject IPrescricaoRepository _prescricaoRepository
+@inject IConsultaRepository _consultaRepository
+
+@{
+    int idUserOrig = -1;
+    string tipoUser = "";
+    string tipoFuncionario = "";
+    string posto = "";
+    int marcados;
+    string especialidade;
+    var ListaPrescrição = await _prescricaoRepository.GetAllPrecricaoAquista(Model.Id);
+    if (_signInManager.IsSignedIn(User))
+    {
+        idUserOrig = Int32.Parse(User.FindFirst("IdUserOrig").Value);
+        tipoUser = User.FindFirst("TipoUser").Value;
+        if (tipoUser != "Aquistas")
+        {
+            tipoFuncionario = await _funcionarioRepository.GetTipolFuncionario(idUserOrig);
+            posto = await _funcionarioRepository.GetPostolFuncionario(idUserOrig);
+        }
+
+    }
+}
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container p-3">
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-2 text-right">
+            @if (tipoFuncionario == "Administrativo" && tipoUser != "Aquistas")
+            {
+                @if (Model.Pass == true)
+                {
+                    <a asp-controller="User" asp-route-id="@Model.Id" asp-route-tipo="Aquistas" asp-action="DeleteUser" class="btn btn-danger">Eliminar Login</a>
+                }
+                else
+                {
+                    <a asp-controller="User" asp-route-id="@Model.Id" asp-route-tipo="Aquistas" asp-action="CreatedUser" class="btn btn-success">Criar Login</a>
+                }
+            }
+
+        </div>
+        <div class="col-md-7">
+            @if (tipoFuncionario == "Administrativo")
+            {
+                <a asp-action="Especialidade" asp-controller="Consulta" asp-route-idAquista="@Model.Id" class="btn btn-info ">Marcar Consulta</a>
+                <a asp-action="Especialidade" asp-controller="Tratamento" asp-route-idAquista="@Model.Id" class="btn btn-primary ">Marcar Tratamento</a>
+            }
+            @if (tipoUser == "Aquistas")
+            {
+                <a asp-controller="Home" asp-action="Aquista" class="btn btn-light btn-icon-split">
+                    <span class="icon text-black-50">
+                        <i class="fas fa-reply-all"></i>
+                    </span>
+                    <span class="text">Voltar</span>
+                </a>
+            }
+            else
+            {
+                @if (tipoFuncionario == "Administrativo")
+                {
+                    <a asp-action="Edit" asp-controller="Aquistas" asp-route-id="@Model.Id" class="btn btn-warning mx-1"><i class="fas fa-pencil-alt" title="Editar"></i></a>
+
+                <a asp-action="Index" class="btn btn-light btn-icon-split">
+                    <span class="icon text-black-50">
+                        <i class="fas fa-reply-all"></i>
+                    </span>
+                    <span class="text">Voltar</span>
+                </a>
+                }
+            }
+
+
+        </div>
+    </div>
+    @if (ListaPrescrição.Count() > 0 && tipoFuncionario == "Administrativo")
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <h5 >Prescriçoes ainda com tratamentos</h5>
+            </div>
+            <div class="col-md-12">
+                @foreach (var item in ListaPrescrição)
+                {
+                    marcados = await _tratamentoRepository.TratamentosMarcados(item.Id);
+                    
+                    if(marcados < item.NTratamentos)
+                    {
+                        int? falta = item.NTratamentos - marcados;
+                        var consulta = await _consultaRepository.GetConsultaById(item.IdConsulta);
+                        especialidade = await _tipoConsultaRepository.GetNomeTConsulta(consulta.IdTipoConsulta);
+                        <a asp-action="Prescricao" asp-controller="Tratamento" asp-route-idAquista="@Model.Id" asp-route-idPrescricao="@item.Id" asp-route-idTipo="@item.IdTipoTratamento" class="btn btn-primary ">Tratamento @especialidade  @falta</a>
+                    }
+
+                }
+
+            </div>
+        </div>
+    }
+    <br />
+<hr />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12 text-primary">
+                    <h2>  @Model.Nome</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="monospaced">Contacto:</span>
+                    <span class="font-weight-bold">@Model.Telefone </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="monospaced">Email:</span>
+                    <span class="font-weight-bold">@Model.Email</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="description">
+                        <span class="monospaced">Data de Nascimento: </span>
+                        <span class="font-weight-bold">@Model.DataNascimento</span>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="description">
+                        <span class="monospaced">Nacionalidade: </span>
+                        <span class="font-weight-bold">@Model.Nacionalidade</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="@Model.FotoSrc?auto=yes&bg=777&fg=555&text=@Model.Nome" alt="" asp-append-version="true" />
+        </div>
+        <div class="col-md-6">
+            <span class="font-weight-bold">Morada</span>
+            <ul class="list-group">
+                <li class="list-group-item"> @Model.Rua</li>
+                <li class="list-group-item"> @Model.CPostal - @Model.Localidade</li>
+                <li class="list-group-item"> @Model.Concelho - @Model.Pais</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <span class="font-weight-bold"><br /></span>
+            <ul class="list-group">
+                <li class="list-group-item"><span class="font-weight-bold">CC - </span> @Model.CC</li>
+                <li class="list-group-item"><span class="font-weight-bold">NIF - </span> @Model.NIF</li>
+                <li class="list-group-item"><span class="font-weight-bold">NSSocial - </span> @Model.NSSocial</li>
+                <li class="list-group-item"><span class="font-weight-bold">Seguro Saude - </span> @Model.SeguroSaude</li>
+            </ul>
+        </div>
+    </div>
+</div>

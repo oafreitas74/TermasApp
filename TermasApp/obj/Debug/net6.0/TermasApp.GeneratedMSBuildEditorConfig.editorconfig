@@ -1,0 +1,380 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TermasApp
+build_property.RootNamespace = TermasApp
+build_property.ProjectDir = C:\Users\oafre\source\repos\TermasApp\TermasApp\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = C:\Users\oafre\source\repos\TermasApp\TermasApp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Aquistas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXF1aXN0YXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Aquistas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXF1aXN0YXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Aquistas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXF1aXN0YXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Aquistas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXF1aXN0YXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Aquistas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXF1aXN0YXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Consulta/AllConsultas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcQWxsQ29uc3VsdGFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Consulta/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Consulta/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Consulta/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Consulta/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Consulta/Especialidade.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcRXNwZWNpYWxpZGFkZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Consulta/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Equipamento/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Equipamento/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Equipamento/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Equipamento/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Equipamento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Funcionarios/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Funcionarios/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Funcionarios/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Funcionarios/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Funcionarios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Home/Aquista.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBcXVpc3RhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Home/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Home/LoginCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbkNyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/ManutPreventiva/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFudXRQcmV2ZW50aXZhXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/ManutPreventiva/EditMapa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFudXRQcmV2ZW50aXZhXEVkaXRNYXBhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/ManutPreventiva/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFudXRQcmV2ZW50aXZhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/ManutPreventiva/Pedidos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFudXRQcmV2ZW50aXZhXFBlZGlkb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/ManutPreventiva/PedidosAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFudXRQcmV2ZW50aXZhXFBlZGlkb3NBbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Pedido/AlPedidos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEFsUGVkaWRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Pedido/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Pedido/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Pedido/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Pedido/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Pedido/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Prescricao/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc2NyaWNhb1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Prescricao/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc2NyaWNhb1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Prescricao/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc2NyaWNhb1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Prescricao/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc2NyaWNhb1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Prescricao/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc2NyaWNhb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_AquistaConsulta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BcXVpc3RhQ29uc3VsdGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_AquistaPrescricao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BcXVpc3RhUHJlc2NyaWNhby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_AquistaTratamento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BcXVpc3RhVHJhdGFtZW50by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_AquistaTriagem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BcXVpc3RhVHJpYWdlbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_DashboardConsulta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EYXNoYm9hcmRDb25zdWx0YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_DashboardPedido.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EYXNoYm9hcmRQZWRpZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_DashboardPrescricao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EYXNoYm9hcmRQcmVzY3JpY2FvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_DashboardPreventiva.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EYXNoYm9hcmRQcmV2ZW50aXZhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_DashboardTratamento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EYXNoYm9hcmRUcmF0YW1lbnRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_DashboardTriagem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EYXNoYm9hcmRUcmlhZ2VtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_Enfermeiro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FbmZlcm1laXJvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_Head.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_Medico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZWRpY28uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_Sidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlYmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_Tecnico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9UZWNuaWNvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_Terapeuta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9UZXJhcGV1dGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_TopBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ub3BCYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/TipoConsultas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0NvbnN1bHRhc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/TipoConsultas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0NvbnN1bHRhc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/TipoConsultas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0NvbnN1bHRhc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/TipoConsultas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0NvbnN1bHRhc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/TipoConsultas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0NvbnN1bHRhc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/TipoTratamento/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1RyYXRhbWVudG9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/TipoTratamento/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1RyYXRhbWVudG9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/TipoTratamento/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1RyYXRhbWVudG9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/TipoTratamento/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1RyYXRhbWVudG9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/TipoTratamento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1RyYXRhbWVudG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Tratamento/AllTratamentos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhdGFtZW50b1xBbGxUcmF0YW1lbnRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Tratamento/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhdGFtZW50b1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Tratamento/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhdGFtZW50b1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Tratamento/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhdGFtZW50b1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Tratamento/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhdGFtZW50b1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Tratamento/Especialidade.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhdGFtZW50b1xFc3BlY2lhbGlkYWRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Tratamento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhdGFtZW50b1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Triagem/AllTriagem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJpYWdlbVxBbGxUcmlhZ2VtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Triagem/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJpYWdlbVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Triagem/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJpYWdlbVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Triagem/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJpYWdlbVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Triagem/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJpYWdlbVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Triagem/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJpYWdlbVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/User/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/User/CreatedUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGVkVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/User/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/oafre/source/repos/TermasApp/TermasApp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-8sv93m61ht

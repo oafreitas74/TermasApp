@@ -1,0 +1,96 @@
+﻿@using TermasApp.IRepository
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+@inject IFuncionarioRepository _funcionarioRepository
+@inject ITipoConsultaRepository _tipoConsultaRepository
+@inject IConsultaRepository _consultaRepository
+@inject IAquistaRepository _aquistaRepository
+@inject ITriagemRepository _triagemRepository
+@{
+
+    int idUserOrig = Int32.Parse(User.FindFirst("IdUserOrig").Value);
+    string tipoFuncionario = await _funcionarioRepository.GetTipolFuncionario(idUserOrig);
+    string posto = await _funcionarioRepository.GetPostolFuncionario(idUserOrig);
+
+    var LConsultasDay = await _consultaRepository.GetConsultaByMedicoDay(idUserOrig);
+    var LConsultas = await _consultaRepository.GetConsultaByMedico(idUserOrig);
+    string consulta;
+    string aquista;
+    string medico;
+    string enfermeiro;
+}
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="umMed-tab" data-toggle="tab" href="#umMed" role="tab" aria-controls="umMed" aria-selected="true">Dia</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="doisMed-tab" data-toggle="tab" href="#doisMed" role="tab" aria-controls="doisMed" aria-selected="false">Todas</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="umMed" role="tabpanel" aria-labelledby="umMed-tab">
+            <br />
+            <table class="table table-bordered table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Consulta</th>
+                        <th>Aquista</th>
+                        <th>Médico</th>
+                        <th>Enfermeiro</th>
+                        <th>Hora</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    @foreach (var item in LConsultasDay)
+                    {
+                        consulta = await _tipoConsultaRepository.GetNomeTConsulta(item.IdTipoConsulta);
+                        aquista = await _aquistaRepository.GetNomeAquista(item.IdAquista);
+                        medico = await _funcionarioRepository.GetNomeFuncionario(item.IdMedico);
+                        enfermeiro = await _triagemRepository.GetNomeEnfermeiro(item.IdTriagem);
+                        <tr>
+                        <td><a asp-action="Details" asp-controller="Consulta" asp-route-id="@item.Id" title="Detalhes">@consulta</a></td>
+                            <td><a asp-action="Details" asp-controller="Aquistas" asp-route-id="@item.IdAquista" title="Detalhes">@aquista</a></td>
+                            <td>@medico</td>
+                            <td>@enfermeiro</td>
+                            <td>@item.Hora</td>
+                            <td>@item.Data</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="doisMed" role="tabpanel" aria-labelledby="doisMed-tab">
+            <br />
+            <table class="table table-bordered table-striped" id="dataTable" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Consulta</th>
+                        <th>Aquista</th>
+                        <th>Médico</th>
+                        <th>Enfermeiro</th>
+                        <th>Hora</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    @foreach (var item in LConsultas)
+                    {
+                        consulta = await _tipoConsultaRepository.GetNomeTConsulta(item.IdTipoConsulta);
+                        aquista = await _aquistaRepository.GetNomeAquista(item.IdAquista);
+                        medico = await _funcionarioRepository.GetNomeFuncionario(item.IdMedico);
+                        enfermeiro = await _triagemRepository.GetNomeEnfermeiro(item.IdTriagem);
+                        <tr>
+                            <td><a asp-action="Details" asp-controller="Consulta" asp-route-id="@item.Id" title="Detalhes">@consulta</a></td>
+                            <td><a asp-action="Details" asp-controller="Aquistas" asp-route-id="@item.IdAquista" title="Detalhes">@aquista</a></td>
+                            <td>@medico</td>
+                            <td>@enfermeiro</td>
+                            <td>@item.Hora</td>
+                            <td>@item.Data</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+

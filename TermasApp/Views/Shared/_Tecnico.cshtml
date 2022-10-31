@@ -1,0 +1,116 @@
+﻿@using TermasApp.IRepository
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+@inject IFuncionarioRepository _funcionarioRepository
+@inject IPedidoRepository _pedidoRepository
+@inject IEquipamentoRepository _equipamentoRepository
+@{
+
+    string nomeInterno;
+    string tecnico;
+    int idUserOrig = Int32.Parse(User.FindFirst("IdUserOrig").Value);
+    var LPedidos = await _pedidoRepository.GetAllPedidosTecnico(idUserOrig);
+    var LPedidosAberto = await _pedidoRepository.GetAllPedidosAberto();
+    var LPedidosPreventiva = await _pedidoRepository.GetAllPedidosPreventivaAberto();
+}
+
+
+
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="umTec-tab" data-toggle="tab" href="#umTec" role="tab" aria-controls="umTec" aria-selected="true">Abertos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="doisTec-tab" data-toggle="tab" href="#doisTec" role="tab" aria-controls="doisTec" aria-selected="false">Todas</a>
+        </li>
+    <li class="nav-item">
+        <a class="nav-link" id="tresTec-tab" data-toggle="tab" href="#tresTec" role="tab" aria-controls="tresTec" aria-selected="false">Preventiva</a>
+    </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="umTec" role="tabpanel" aria-labelledby="umTec-tab">
+            <br />
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Equipamento</th>
+                    <th>Data Pedido</th>
+                    <th>Avaria</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                @foreach (var item in LPedidosAberto)
+                {
+                    nomeInterno = await _equipamentoRepository.GetNomeEquipamento(item.IdEquipamento);
+                    <tr>
+                        <td>@nomeInterno</td>
+                        <td>@item.DataPedido</td>
+                        <td>@item.Avaria</td>
+                        <td>@item.Estado</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+        <div class="tab-pane" id="doisTec" role="tabpanel" aria-labelledby="doisTec-tab">
+            <br />
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Equipamento</th>
+                    <th>Data Pedido</th>
+                    <th>Avaria</th>
+                    <th>Estado</th>
+                    <th>Tecnico</th>
+                    <th>Data Conclusao</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                @foreach (var item in LPedidos)
+                {
+                    nomeInterno = await _equipamentoRepository.GetNomeEquipamento(item.IdEquipamento);
+                    tecnico = await _funcionarioRepository.GetNomeFuncionario(item.IdTecnico);
+                    <tr>
+                        <td>@nomeInterno</td>
+                        <td>@item.DataPedido</td>
+                        <td>@item.Avaria</td>
+                        <td>@item.Estado</td>
+                        <td>@tecnico</td>
+                        <td>@item.DataConclusao</td>
+                        <td>@item.Valor</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+    <div class="tab-pane" id="tresTec" role="tabpanel" aria-labelledby="tresTec-tab">
+        <br />
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Equipamento</th>
+                    <th>Data Pedido</th>
+                    <th>Avaria</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                @foreach (var item in LPedidosPreventiva)
+                {
+                    nomeInterno = await _equipamentoRepository.GetNomeEquipamento(item.IdEquipamento);
+                    <tr>
+                        <td>@nomeInterno</td>
+                        <td>@item.DataPedido</td>
+                        <td>@item.Avaria</td>
+                        <td>@item.Estado</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+

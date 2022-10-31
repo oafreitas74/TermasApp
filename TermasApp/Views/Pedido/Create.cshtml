@@ -1,0 +1,47 @@
+﻿@model TermasApp.Models.PedidosReparacaoModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PedidosReparacaoModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdEquipamento" class="control-label">Equipamentos</label>
+                <select asp-for="IdEquipamento" class="form-control selectpicker" data-live-search="true" asp-items="ViewBag.Equipamentos">
+                    <option value="" disabled selected>Escolher...</option>
+                </select>
+                <span asp-validation-for="IdEquipamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Avaria" class="control-label"></label>
+                <input asp-for="Avaria" class="form-control" />
+                <span asp-validation-for="Avaria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observacoes" class="control-label"></label>
+                <input asp-for="Observacoes" class="form-control" />
+                <span asp-validation-for="Observacoes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-ativo="true" class="btn btn-light btn-icon-split">
+        <span class="icon text-black-50">
+            <i class="fas fa-reply-all"></i>
+        </span>
+        <span class="text">Voltar</span>
+    </a>
+</div>
+

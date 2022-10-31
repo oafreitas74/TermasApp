@@ -1,0 +1,47 @@
+﻿@using TermasApp.IRepository
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+@inject IFuncionarioRepository _funcionarioRepository
+@inject ITipoTratamentoRepository _tipoTratamentoRepository
+@inject IAquistaRepository _aquistaRepository
+@inject ITriagemRepository _triagemRepository
+@inject ITratamentoRepository _tratamentoRepository
+@{
+    int idUserOrig = Int32.Parse(User.FindFirst("IdUserOrig").Value);
+    var LTratamentos = await _tratamentoRepository.GetAllTratamentoAquista(idUserOrig);
+    string tratamento;
+    string aquista;
+    string terateuta;
+    string enfermeiro;
+
+}
+
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Tratamento</th>
+            <th>Aquista</th>
+            <th>Terapeuta</th>
+            <th>Enfermeiro</th>
+            <th>Hora</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        @foreach (var item in LTratamentos)
+        {
+            tratamento = await _tipoTratamentoRepository.GetNomeTTratamento(item.IdTipoTratamento);
+            aquista = await _aquistaRepository.GetNomeAquista(item.IdAquista);
+            terateuta = await _funcionarioRepository.GetNomeFuncionario(item.IdTerapeuta);
+            enfermeiro = await _triagemRepository.GetNomeEnfermeiro(item.IdTriagem);
+            <tr>
+                <td><a asp-controller="Tratamento" asp-action="Details" asp-route-id="@item.IdTipoTratamento" title="Detalhes">@tratamento</a></td>
+                <td>@aquista</td>
+                <td>@terateuta</td>
+                <td>@enfermeiro</td>
+                <td>@item.Hora</td>
+                <td>@item.Data</td>
+            </tr>
+        }
+    </tbody>
+</table>

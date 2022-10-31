@@ -1,0 +1,89 @@
+﻿@model TermasApp.Models.EquipamentoPreventivaModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<h4>Marcar os meses em que é feita a manutenção preventiva do equipamentos</h4>
+<h4>@Model.NomeInterno</h4>
+<hr />
+<div class="row">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="NomeInterno" />
+            <div class="form-group row">
+                <div class="col-1">
+                    <label  class="control-label">Janeiro</label>
+                    <input asp-for="Jan" />
+                    <span asp-validation-for="Jan" class="text-danger"></span>
+                </div>
+                <div class="col-1">
+                    <label asp-for="Fev" class="control-label">Fevereiro</label>
+                    <input asp-for="Fev" />
+                    <span asp-validation-for="Fev" class="text-danger"></span>
+                </div>
+                <div class="col-1">
+                    <label asp-for="Mar" class="control-label">Março</label>
+                    <input asp-for="Mar" />
+                    <span asp-validation-for="Mar" class="text-danger"></span>
+                </div>
+                <div class="col-1">
+                    <label class="control-label">Abril</label>
+                    <input asp-for="Abr" />
+                    <span asp-validation-for="Abr" class="text-danger"></span>
+                </div>
+                <div class="col-1">
+                    <label asp-for="Mai" class="control-label">Maio</label>
+                    <input asp-for="Mai" />
+                    <span asp-validation-for="Mai" class="text-danger"></span>
+                </div>
+                <div class="col-1">
+                    <label asp-for="Jun" class="control-label">Junho</label>
+                    <input asp-for="Jun"  />
+                    <span asp-validation-for="Jun" class="text-danger"></span>
+                </div>
+                <div class="col-1">
+                    <label asp-for="Jul" class="control-label">Julho</label>
+                    <input asp-for="Jul"  />
+                    <span asp-validation-for="Jul" class="text-danger"></span>
+                </div>
+                <div class="col-1">
+                    <label asp-for="Ago" class="control-label">Agosto</label>
+                    <input asp-for="Ago"  />
+                    <span asp-validation-for="Ago" class="text-danger"></span>
+                </div>
+                <div class="col-1">
+                    <label asp-for="Set" class="control-label">Setembro</label>
+                    <input asp-for="Set"  />
+                    <span asp-validation-for="Set" class="text-danger"></span>
+                </div>
+                <div class="col-1">
+                    <label asp-for="Out" class="control-label">Outubro</label>
+                    <input asp-for="Out" />
+                    <span asp-validation-for="Out" class="text-danger"></span>
+                </div>
+                <div class="col-1">
+                    <label asp-for="Nov" class="control-label">Novembro</label>
+                    <input asp-for="Nov" />
+                    <span asp-validation-for="Nov" class="text-danger"></span>
+                </div>
+                <div class="col-1">
+                    <label asp-for="Dez" class="control-label">Dezembro</label>
+                    <input asp-for="Dez"  />
+                    <span asp-validation-for="Dez" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <a asp-action="Index" asp-route-ativo="true" class="btn btn-light btn-icon-split">
+                    <span class="icon text-black-50">
+                        <i class="fas fa-reply-all"></i>
+                    </span>
+                    <span class="text">Voltar</span>
+                </a>
+            </div>
+        </form>
+</div>
+

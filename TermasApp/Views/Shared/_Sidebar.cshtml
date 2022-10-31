@@ -1,0 +1,173 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+@inject TermasApp.IRepository.IFuncionarioRepository _funcionarioRepository
+
+@{
+    int idUserOrig;
+    string tipoUser;
+    string tipoFuncionario = "";
+
+}
+
+
+    <!-- Sidebar -->
+<ul class="navbar-nav  bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <li class="nav-item ">
+        <br />
+        <a class="sidebar-brand " asp-controller="Home" asp-action="Index">
+            <p>Termas App</p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <br />
+    </li>
+    <li class="nav-item">
+        <hr class="sidebar-divider bg-white my-0">
+    </li>
+    @if (_signInManager.IsSignedIn(User))
+    {
+        idUserOrig = Int32.Parse(User.FindFirst("IdUserOrig").Value);
+        tipoUser = User.FindFirst("TipoUser").Value;
+        if (tipoUser != "Aquistas")
+        {
+            tipoFuncionario = await _funcionarioRepository.GetTipolFuncionario(idUserOrig);
+        }
+        <li class="nav-item active">
+            <a class="nav-link text-center" asp-controller="Home" asp-action="Index">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        @if (tipoUser != "Aquistas")
+        {
+            <li class="nav-item">
+                <hr class="sidebar-divider bg-white my-0">
+            </li>
+            @if (tipoFuncionario != "Tecnico")
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed text-center" asp-area="" asp-controller="Aquistas" asp-action="Index"><span>Aquistas</span></a>
+                </li>
+                <li class="nav-item">
+                    <hr class="sidebar-divider my-0">
+                </li>
+            }  
+            @if (tipoFuncionario == "Administrativo" || tipoFuncionario == "Medico")
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed text-center" asp-area="" asp-controller="Consulta" asp-action="Index"><span>Consultas</span></a>
+                </li>
+                <li class="nav-item">
+                    <hr class="sidebar-divider my-0">
+                </li>
+            }
+            @if (tipoFuncionario == "Administrativo" || tipoFuncionario == "Terapeuta")
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed text-center" asp-area="" asp-controller="Tratamento" asp-action="Index"><span>Tratamentos</span></a>
+                </li>
+                <li class="nav-item">
+                    <hr class="sidebar-divider my-0">
+                </li>
+            }
+            @if (tipoFuncionario == "Administrativo" || tipoFuncionario == "Enfermeiro")
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed text-center" asp-area="" asp-controller="Triagem" asp-action="Index"><span>Triagens</span></a>
+                </li>
+                <li class="nav-item">
+                    <hr class="sidebar-divider my-0">
+                </li>
+            }
+            @if (tipoFuncionario == "Administrativo" || tipoFuncionario == "Medico")
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed text-center" asp-area="" asp-controller="Prescricao" asp-action="Index"><span>Prescrições</span></a>
+                </li>
+                <li class="nav-item">
+                    <hr class="sidebar-divider my-0">
+                </li>
+            }
+            @if (tipoFuncionario == "Administrativo" || tipoFuncionario == "Tecnico")
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed text-center" asp-area="" asp-controller="Pedido" asp-action="Index"><span>Pedidos de Reparações</span></a>
+                </li>
+                <li class="nav-item">
+                    <hr class="sidebar-divider my-0">
+                </li>
+            }
+            @if (tipoFuncionario == "Tecnico")
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed text-center" asp-area="" asp-controller="Equipamento" asp-action="Index"><span>Equipamentos</span></a>
+                </li>
+                <li class="nav-item">
+                    <hr class="sidebar-divider my-0">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed text-center" asp-area="" asp-controller="ManutPreventiva" asp-action="Index"><span>Manutenção Preventiva</span></a>
+                </li>
+                <li class="nav-item">
+                    <hr class="sidebar-divider my-0">
+                </li>
+            }
+            @if (tipoFuncionario != "")
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed text-center" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Staff</span>
+                    </a>
+                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            @if (tipoFuncionario == "Administrativo")
+                            {
+                                <a class="collapse-item text-center" asp-area="" asp-controller="Funcionarios"  asp-action="Index"><span>Funcionarios</span></a>
+                                <a class="collapse-item text-center" asp-area="" asp-controller="Funcionarios" asp-route-tipofuncionario="Administrativo" asp-action="Index"><span>Administrativos</span></a>
+                            }
+                            @if (tipoFuncionario == "Administrativo" || tipoFuncionario == "Enfermeiro")
+                            {
+                                <a class="collapse-item text-center" asp-area="" asp-controller="Funcionarios" asp-route-tipofuncionario="Enfermeiro" asp-action="Index"><span>Enfermeiros</span></a>
+                            }
+                            @if (tipoFuncionario == "Administrativo" || tipoFuncionario == "Medico")
+                            {
+                                <a class="collapse-item text-center" asp-area="" asp-controller="Funcionarios" asp-route-tipofuncionario="Medico" asp-action="Index"><span>Medicos</span></a>
+                            }
+                            @if (tipoFuncionario == "Administrativo" || tipoFuncionario == "Terapeuta")
+                            {
+                                <a class="collapse-item text-center" asp-area="" asp-controller="Funcionarios" asp-route-tipofuncionario="Terapeuta" asp-action="Index"><span>Terapeutas</span></a>
+                            }
+                            @if (tipoFuncionario == "Administrativo" || tipoFuncionario == "Tecnico")
+                            {
+                                <a class="collapse-item text-center" asp-area="" asp-controller="Funcionarios" asp-route-tipofuncionario="Tecnico" asp-action="Index"><span>Tecnicos</span></a>
+                            }
+                        </div>
+                    </div>
+                </li>
+            }
+
+        }
+            <!-- Divider -->
+            <li class="nav-item">
+                <hr class="sidebar-divider my-0">
+            </li>
+
+            <!-- Divider -->
+            <li class="nav-item">
+                <hr class="sidebar-divider d-none d-md-block">
+            </li>
+
+            <!-- Sidebar Toggler (Sidebar) -->
+
+        <li class="nav-item text-center">
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </li>
+    }
+</ul>
+
+<!-- End of Sidebar -->

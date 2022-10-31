@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "Aquista";
+}
+
+<div class="container">
+    <h4>Dashboard</h4>
+    <br />
+    <div class="container-fluid">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Histórico de:</h6>
+        </div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="um-tab" data-toggle="tab" href="#um" role="tab" aria-controls="um" aria-selected="true">Consultas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="dois-tab" data-toggle="tab" href="#dois" role="tab" aria-controls="dois" aria-selected="false">Prescrições</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tres-tab" data-toggle="tab" href="#tres" role="tab" aria-controls="tres" aria-selected="false">Tratamentos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="quatro-tab" data-toggle="tab" href="#quatro" role="tab" aria-controls="quatro" aria-selected="false">Triagens</a>
+            </li>
+
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="um" role="tabpanel" aria-labelledby="um-tab">
+                <br />
+                <partial name="_AquistaConsulta" />
+            </div>
+            <div class="tab-pane" id="dois" role="tabpanel" aria-labelledby="dois-tab">
+                <br />
+                <partial name="_AquistaPrescricao" />
+            </div>
+            <div class="tab-pane" id="tres" role="tabpanel" aria-labelledby="tres-tab">
+                <br />
+                <partial name="_AquistaTratamento" />
+            </div>
+            <div class="tab-pane" id="quatro" role="tabpanel" aria-labelledby="quatro-tab">
+                <br />
+                <partial name="_AquistaTriagem" />
+            </div>
+        </div>
+    </div>
+</div>

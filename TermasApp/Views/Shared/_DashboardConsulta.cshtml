@@ -1,0 +1,51 @@
+﻿@using TermasApp.IRepository
+@inject IFuncionarioRepository _funcionarioRepository
+@inject ITipoConsultaRepository _tipoConsultaRepository
+@inject IConsultaRepository _consultaRepository
+@inject IAquistaRepository _aquistaRepository
+@inject ITriagemRepository _triagemRepository
+@{
+    string consulta;
+    string aquista;
+    string medico;
+    EnfermeiroModel enfermeiro;
+
+    var LConsultas = await _consultaRepository.GetAllConsultasDay();
+}
+
+<table class="table table-bordered table-striped"  style="width:100%">
+    <thead>
+        <tr>
+            <th>Consulta</th>
+            <th>Aquista</th>
+            <th>Médico</th>
+            <th>Enfermeiro</th>
+            <th>Hora</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        @foreach (var item in LConsultas)
+        {
+            consulta = await _tipoConsultaRepository.GetNomeTConsulta(item.IdTipoConsulta);
+            aquista = await _aquistaRepository.GetNomeAquista(item.IdAquista);
+            medico = await _funcionarioRepository.GetNomeFuncionario(item.IdMedico);
+            enfermeiro = await _triagemRepository.GetEnfermeiro(item.IdTriagem);
+            <tr>
+                <td><a asp-action="Details" asp-controller="Consulta" asp-route-id="@item.Id" title="Detalhes">@consulta</a></td>
+                <td><a asp-action="Details" asp-controller="Aquistas" asp-route-id="@item.IdAquista" title="Detalhes">@aquista</a></td>
+                <td><a asp-controller="Funcionarios" asp-action="Details" asp-route-id="@item.IdMedico" title="Detalhes">@medico</a></td>
+                @if (enfermeiro.Id > 0)
+                {
+                    <td><a asp-controller="Funcionarios" asp-action="Details" asp-route-id="@enfermeiro.Id" title="Detalhes">@enfermeiro.Nome</a></td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                <td>@item.Hora</td>
+                <td>@item.Data</td>
+            </tr>
+        }
+    </tbody>
+</table>

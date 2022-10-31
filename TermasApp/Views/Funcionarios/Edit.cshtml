@@ -1,0 +1,208 @@
+﻿@using TermasApp.IRepository
+@model TermasApp.Models.FuncionarioModel
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+@inject IFuncionarioRepository _funcionarioRepository
+
+@{
+    int idUserOrig = -1;
+    string tipoFuncionario = "";
+    string posto = "";
+    if (_signInManager.IsSignedIn(User))
+    {
+        idUserOrig = Int32.Parse(User.FindFirst("IdUserOrig").Value);
+        tipoFuncionario = await _funcionarioRepository.GetTipolFuncionario(idUserOrig);
+        posto = await _funcionarioRepository.GetPostolFuncionario(idUserOrig);
+    }
+}
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="form-group row">
+            <div class="col-9"><h1>Editar Funcionario</h1></div>
+            <div class="col-2">
+                @if (Model.FotoSrc != null)
+                {
+                    <div class="alert alert-success" role="alert">
+                        <img src="@Model.FotoSrc" alt="@Model.Nome" width="150" />
+                    </div>
+                }
+            </div>
+        </div>
+        <hr />
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="FotoSrc" />
+            <div class="form-group row">
+                <div class="col-6">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="Genero" class="control-label"></label>
+                    <select asp-for="Genero" class="form-control">
+                        <option value="" disabled selected>Seleciona</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Outro">Outro</option>
+                        <option value="">Não responder</option>
+                    </select>
+                    <span asp-validation-for="Genero" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="TipoFuncionario" class="control-label">Secção</label>
+                    <select asp-for="TipoFuncionario" class="form-control">
+                        <option value="" disabled selected>Seleciona</option>
+                        <option value="Administrativo">Administrativo</option>
+                        <option value="Tecnico">Tecnico</option>
+                        <option value="Terapeuta">Terapeuta</option>
+                        <option value="Enfermeiro">Enfermeiro</option>
+                        <option value="Medico">Médico</option>
+                    </select>
+                   <span asp-validation-for="TipoFuncionario" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="CC" class="control-label"></label>
+                    <input asp-for="CC" class="form-control" />
+                    <span asp-validation-for="CC" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="NIF" class="control-label"></label>
+                    <input asp-for="NIF" class="form-control" />
+                    <span asp-validation-for="NIF" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="NSSocial" class="control-label"></label>
+                    <input asp-for="NSSocial" class="form-control" />
+                    <span asp-validation-for="NSSocial" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="SeguroTrabalho" class="control-label">Seguro Trabalho</label>
+                    <input asp-for="SeguroTrabalho" class="form-control" />
+                    <span asp-validation-for="SeguroTrabalho" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="IBAN" class="control-label"></label>
+                    <input asp-for="IBAN" class="form-control" />
+                    <span asp-validation-for="IBAN" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="Hablitacoes" class="control-label">Hablitações</label>
+                    <input asp-for="Hablitacoes" class="form-control" />
+                    <span asp-validation-for="Hablitacoes" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="Especialidade" class="control-label"></label>
+                    <input asp-for="Especialidade" class="form-control" />
+                    <span asp-validation-for="Especialidade" class="text-danger"></span>
+                </div>
+                <div class="col-1">
+                    <label asp-for="Classificacao" class="control-label">Classificação</label>
+                    <input asp-for="Classificacao" class="form-control" />
+                    <span asp-validation-for="Classificacao" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="Posto" class="control-label"></label>
+                    <select asp-for="Posto" class="form-control">
+                        <option value="" disabled selected>Seleciona</option>
+                        <option value="Chefe">Diretor</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                    <span asp-validation-for="Posto" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-5">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="Telefone" class="control-label"></label>
+                    <input asp-for="Telefone" class="form-control" />
+                    <span asp-validation-for="Telefone" class="text-danger"></span>
+                </div>
+                <div class="col-5">
+                    <label asp-for="Foto" class="control-label"></label>
+                    <input asp-for="Foto" class="form-control" />
+                    <span asp-validation-for="Foto" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-9">
+                    <label asp-for="Rua" class="control-label"></label>
+                    <input asp-for="Rua" class="form-control" />
+                    <span asp-validation-for="Rua" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="CPostal" class="control-label"></label>
+                    <input asp-for="CPostal" class="form-control" />
+                    <span asp-validation-for="CPostal" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="Concelho" class="control-label"></label>
+                    <input asp-for="Concelho" class="form-control" />
+                    <span asp-validation-for="Concelho" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="Localidade" class="control-label"></label>
+                    <input asp-for="Localidade" class="form-control" />
+                    <span asp-validation-for="Localidade" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="Pais" class="control-label">País</label>
+                    <input asp-for="Pais" class="form-control" />
+                    <span asp-validation-for="Pais" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="Nacionalidade" class="control-label"></label>
+                    <input asp-for="Nacionalidade" class="form-control" />
+                    <span asp-validation-for="Nacionalidade" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="DataNascimento" class="control-label">Data Nascimento</label>
+                    <input asp-for="DataNascimento" class="form-control" />
+                    <span asp-validation-for="DataNascimento" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="DataEntrada" class="control-label">Data Entrada</label>
+                    <input asp-for="DataEntrada" class="form-control" />
+                    <span asp-validation-for="DataEntrada" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="DataSaida" class="control-label">Data Saída</label>
+                    <input asp-for="DataSaida" class="form-control" />
+                    <span asp-validation-for="DataSaida" class="text-danger"></span>
+                </div>
+            </div>
+            <hr />
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <a asp-action="Index" asp-route-ativo="true" class="btn btn-light btn-icon-split">
+                    <span class="icon text-black-50">
+                        <i class="fas fa-reply-all"></i>
+                    </span>
+                    <span class="text">Voltar</span>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

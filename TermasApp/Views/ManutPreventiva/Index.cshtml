@@ -1,0 +1,138 @@
+﻿@model IEnumerable<TermasApp.Models.EquipamentoPreventivaModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h4 class="display-4 text-primary">Manutenção Preventiva</h4>
+        </div>
+        <div class="col-md-2">
+            <br />
+            <a asp-action="EditMapa" class="btn btn-warning mx-1"><i class="fas fa-pencil-alt"></i>Editar Mapa</a>
+        </div>
+        <div class="col-md-2">
+            <br />
+            <a asp-action="Pedidos" class="btn btn-info">Pedidos manutenção</a>
+        </div>
+    </div>
+
+    <br />
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" id="dataTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nome Interno</th>
+                    <th>Jan</th>
+                    <th>Fev</th>
+                    <th>Mar</th>
+                    <th>Abr</th>
+                    <th>Mai</th>
+                    <th>Jun</th>
+                    <th>Jul</th>
+                    <th>Ago</th>
+                    <th>Set</th>
+                    <th>Out</th>
+                    <th>Nov</th>
+                    <th>Dez</th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><a asp-action="Details" asp-controller="Equipamento" asp-route-id="@item.Id" title="Detalhes">@item.NomeInterno</a></td>
+                        <th>@if (item.Jan == true)
+                            {
+                                <i class="fas fa-check"></i>
+                            }
+                        </th>
+                        <th>
+                            @if (item.Fev == true)
+                            {
+                                <i class="fas fa-check"></i>
+                            }
+                        </th>
+                        <th>
+                            @if (item.Mar == true)
+                            {
+                                <i class="fas fa-check"></i>
+                            }
+                        </th>
+
+                         <th>
+                            @if (item.Abr == true)
+                            {
+                                <i class="fas fa-check"></i>
+                            }
+                        </th>
+
+                         <th>
+                            @if (item.Mai == true)
+                            {
+                                <i class="fas fa-check"></i>
+                            }
+                        </th>
+                         <th>
+                            @if (item.Jun == true)
+                            {
+                                <i class="fas fa-check"></i>
+                            }
+                        </th>
+                         <th>
+                            @if (item.Jul == true)
+                            {
+                                <i class="fas fa-check"></i>
+                            }
+                        </th>
+                         <th>
+                            @if (item.Ago == true)
+                            {
+                                <i class="fas fa-check"></i>
+                            }
+                        </th>
+                         <th>
+                            @if (item.Set == true)
+                            {
+                                <i class="fas fa-check"></i>
+                            }
+                        </th>
+                         <th>
+                            @if (item.Out == true)
+                            {
+                                <i class="fas fa-check"></i>
+                            }
+                        </th>
+                        <th>
+                            @if (item.Nov == true)
+                            {
+                                <i class="fas fa-check"></i>
+                            }
+                        </th>
+                         <th>
+                            @if (item.Dez == true)
+                            {
+                                <i class="fas fa-check"></i>
+                            }
+                        </th>
+                        <td>
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning mx-1"><i class="fas fa-pencil-alt" title="Editar"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Nâo exitem dados</p>
+    }
+</div>

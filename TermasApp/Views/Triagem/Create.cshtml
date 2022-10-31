@@ -1,0 +1,49 @@
+﻿@model TermasApp.Models.TriagemModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TriagemModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdAquista" />
+            <div class="form-group">
+                <label asp-for="IdEnfermeiro" class="control-label">Enfermeiro</label>
+                <select asp-for="IdEnfermeiro" class="form-control selectpicker" data-live-search="true" asp-items="ViewBag.LEnfermeiros">
+                    <option value="" disabled selected>Enfermeiro</option>
+                </select>
+                <span asp-validation-for="IdEnfermeiro" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Hora" class="control-label"></label>
+                <input asp-for="Hora" class="form-control" />
+                <span asp-validation-for="Hora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-light btn-icon-split">
+        <span class="icon text-black-50">
+            <i class="fas fa-reply-all"></i>
+        </span>
+        <span class="text">Voltar</span>
+    </a>
+</div>
+

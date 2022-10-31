@@ -1,0 +1,61 @@
+﻿@model IEnumerable<TermasApp.Models.PedidosReparacaoModel>
+@inject TermasApp.IRepository.IEquipamentoRepository _equipamentoRepository
+
+@{
+    ViewData["Title"] = "Pedidos";
+}
+
+@{
+
+    string nomeInterno;
+
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h4 class="display-4 text-primary">Pedidos Todos</h4>
+        </div>
+        <div class="col-md-2">
+            <br />
+            <a asp-action="Pedidos" class="btn btn-warning">Aberto</a>
+        </div>
+
+        <div class="col-md-2">
+            <br />
+            <a asp-action="CriarPedidosPreventiva" class="btn btn-primary">Criar Pedidos</a>
+        </div>
+    </div>
+
+    <br />
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" id="dataTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Equipamento</th>
+                    <th>Data Pedido</th>
+                    <th>Avaria</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                @foreach (var item in Model)
+                {
+                    nomeInterno = await _equipamentoRepository.GetNomeEquipamento(item.IdEquipamento);
+                    <tr>
+                        <td>@nomeInterno</td>
+                        <td>@item.DataPedido</td>
+                        <td>@item.Avaria</td>
+                        <td>@item.Estado</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Nâo exitem dados</p>
+    }
+</div>
+

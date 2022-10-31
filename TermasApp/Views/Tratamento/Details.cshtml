@@ -1,0 +1,83 @@
+﻿@using TermasApp.IRepository
+@model TermasApp.Models.TratamentoModel
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+@inject IFuncionarioRepository _funcionarioRepository
+@inject IAquistaRepository _aquistaRepository
+@inject ITriagemRepository _triagemRepository
+@inject ITipoTratamentoRepository _tipoTratamentoRepository
+
+
+@{
+    int idUserOrig = -1;
+    string tipoFuncionario = "";
+    string posto = "";
+    string aquista = await _aquistaRepository.GetNomeAquista(Model.IdAquista);
+    string medico = await _funcionarioRepository.GetNomeFuncionario(Model.IdTerapeuta);
+    var triagem = await _triagemRepository.GetTriagemById(Model.IdTriagem);
+    var tipoTratamento = await _tipoTratamentoRepository.GetTTratamentoById(Model.IdTipoTratamento);
+    if (_signInManager.IsSignedIn(User))
+    {
+        idUserOrig = Int32.Parse(User.FindFirst("IdUserOrig").Value);
+        tipoFuncionario = await _funcionarioRepository.GetTipolFuncionario(idUserOrig);
+        posto = await _funcionarioRepository.GetPostolFuncionario(idUserOrig);
+
+    }
+}
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h4 class="display-4 text-primary">Detalhes do Tratamento</h4>
+    </div>
+</div>
+
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-12 text-primary">
+                <h2>  @aquista</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <span class="monospaced">Consulta de:</span><br />
+                <span class="font-weight-bold">@tipoTratamento.Nome</span><br />
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-primary">
+                <span class="monospaced">Médico:</span>
+                <span class="font-weight-bold">@medico</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <span class="monospaced"> Preço:</span>
+                <span class="font-weight-bold">@tipoTratamento.Preco</span><br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <span class="monospaced">Dia:</span><br />
+                <span class="font-weight-bold">@Model.Data </span><br />
+                <span class="monospaced">Hora:</span>
+                <span class="font-weight-bold">@Model.Hora </span><br />
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <span class="monospaced">Triagem dia:</span><br />
+                <span class="font-weight-bold">@triagem.Data </span><br />
+                <span class="monospaced">Hora:</span><br />
+                <span class="font-weight-bold">@triagem.Hora </span><br />
+            </div>
+        </div>
+    </div>
+</div>

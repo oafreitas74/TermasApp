@@ -1,0 +1,129 @@
+﻿@using TermasApp.IRepository
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+@inject IFuncionarioRepository _funcionarioRepository
+@inject ITipoConsultaRepository _tipoConsulta
+@inject IAquistaRepository _aquista
+@inject ITriagemRepository _triagem
+
+@{
+    int idUserOrig = -1;
+    string tipoFuncionario = "";
+    string posto = "";
+
+    if (_signInManager.IsSignedIn(User))
+    {
+        idUserOrig = Int32.Parse(User.FindFirst("IdUserOrig").Value);
+        tipoFuncionario = await _funcionarioRepository.GetTipolFuncionario(idUserOrig);
+        posto = await _funcionarioRepository.GetPostolFuncionario(idUserOrig);
+    }
+}
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<div class="container">
+<h3>Dashboard</h3>
+    <h4>@tipoFuncionario</h4>
+<br />
+    <div class="container-fluid">
+        @if (tipoFuncionario != "Administrativo")
+        {
+       
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Pessoal</h6>
+            </div>
+        }
+
+
+        @if (tipoFuncionario == "Medico")
+        {
+            <partial name="_Medico" />
+        }
+        else if (tipoFuncionario == "Terapeuta")
+        {
+            <partial name="_Terapeuta" />
+        }
+        else if (tipoFuncionario == "Enfermeiro")
+        {
+            <partial name="_Enfermeiro" />
+        }
+        else if (tipoFuncionario == "Tecnico")
+        {
+            <partial name="_Tecnico" />
+        }
+    </div>
+<br />
+<br />
+<div class="container-fluid">
+    @if (posto == "Chefe")
+    {
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Geral</h6>
+            </div>
+    }
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+        @if ((tipoFuncionario == "Administrativo" || tipoFuncionario == "Medico") && posto == "Chefe")
+        {
+            <li class="nav-item">
+                <a class="nav-link active" id="um-tab" data-toggle="tab" href="#um" role="tab" aria-controls="um" aria-selected="true">Consultas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="dois-tab" data-toggle="tab" href="#dois" role="tab" aria-controls="dois" aria-selected="false">Prescrições</a>
+            </li>
+        }
+        @if ((tipoFuncionario == "Administrativo" || tipoFuncionario == "Terapeuta") && posto == "Chefe")
+        {
+            <li class="nav-item">
+                <a class="nav-link" id="tres-tab" data-toggle="tab" href="#tres" role="tab" aria-controls="tres" aria-selected="false">Tratamentos</a>
+            </li>
+        }
+        @if ((tipoFuncionario == "Administrativo" || tipoFuncionario == "Enfermeiro") && posto == "Chefe")
+        {
+            <li class="nav-item">
+                <a class="nav-link" id="quatro-tab" data-toggle="tab" href="#quatro" role="tab" aria-controls="quatro" aria-selected="false">Triagens</a>
+            </li>
+        }
+        @if ((tipoFuncionario == "Administrativo" || tipoFuncionario == "Tecnico") && posto == "Chefe")
+        {
+            <li class="nav-item">
+                <a class="nav-link" id="cinco-tab" data-toggle="tab" href="#cinco" role="tab" aria-controls="cinco" aria-selected="false">Pedido de reparação</a>
+            </li>
+        }
+        @if (tipoFuncionario == "Tecnico" && posto == "Chefe")
+        {
+            <li class="nav-item">
+                <a class="nav-link" id="seis-tab" data-toggle="tab" href="#seis" role="tab" aria-controls="seis" aria-selected="false">Manutenção Preventiva</a>
+            </li>
+        }
+    </ul>
+    <div class="tab-content">
+        @if ((tipoFuncionario == "Administrativo" || tipoFuncionario == "Medico") && posto == "Chefe")
+        {
+            <div class="tab-pane active" id="um" role="tabpanel" aria-labelledby="um-tab">
+                <br />
+           <partial name="_DashboardConsulta" />
+        </div>
+        }
+        <div class="tab-pane" id="dois" role="tabpanel" aria-labelledby="dois-tab">
+            <br />
+            <partial name="_DashboardPrescricao" />
+        </div>
+        <div class="tab-pane" id="tres" role="tabpanel" aria-labelledby="tres-tab">
+            <br />
+            <partial name="_DashboardTratamento" />
+        </div>
+        <div class="tab-pane" id="quatro" role="tabpanel" aria-labelledby="quatro-tab">
+            <br />
+            <partial name="_DashboardTriagem" />
+        </div>
+        <div class="tab-pane" id="cinco" role="tabpanel" aria-labelledby="cinco-tab">
+            <br />
+            <partial name="_DashboardPedido" />
+        </div>
+        <div class="tab-pane" id="seis" role="tabpanel" aria-labelledby="seis-tab">
+            <br />
+            <partial name="_DashboardPreventiva" />
+        </div>
+    </div>
+</div>
+</div>

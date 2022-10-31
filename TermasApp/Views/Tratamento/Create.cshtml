@@ -1,0 +1,62 @@
+﻿@using TermasApp.IRepository
+@model TermasApp.Models.TratamentoModel
+@inject IAquistaRepository _aquista
+@inject ITipoTratamentoRepository _tTratamento
+@{
+    string aquista = await _aquista.GetNomeAquista(Model.IdAquista);
+    string tratamento = await _tTratamento.GetNomeTTratamento(Model.IdTipoTratamento);
+}
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>@aquista</h4>
+<h4>Tratamento de: @tratamento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdAquista" />
+            <input type="hidden" asp-for="IdTriagem" />
+            <input type="hidden" asp-for="IdPrescricao" />
+            <input type="hidden" asp-for="IdTipoTratamento" />
+
+            <div class="form-group">
+                <label asp-for="IdTerapeuta" class="control-label">Terapeuta</label>
+                <select asp-for="IdTerapeuta" class="form-control selectpicker" data-live-search="true" asp-items="ViewBag.LTerapeuta">
+                    <option value="" disabled selected>Escolher...</option>
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Hora" class="control-label"></label>
+                <input asp-for="Hora" class="form-control" />
+                <span asp-validation-for="Hora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observacoes" class="control-label"></label>
+                <input asp-for="Observacoes" class="form-control" />
+                <span asp-validation-for="Observacoes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-light btn-icon-split">
+        <span class="icon text-black-50">
+            <i class="fas fa-reply-all"></i>
+        </span>
+        <span class="text">Voltar</span>
+    </a>
+</div>
+

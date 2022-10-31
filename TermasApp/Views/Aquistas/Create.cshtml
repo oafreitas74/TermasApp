@@ -1,0 +1,127 @@
+﻿@model TermasApp.Models.AquistaModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Criar Aquista</h1>
+<hr />
+<div class="row">
+    <div class="col-12">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row">
+                <div class="col-7">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="Genero" class="control-label"></label>
+                    <select asp-for="Genero" class="form-control">
+                        <option value="" disabled selected>Seleciona</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Outro">Outro</option>
+                        <option value="">Não responder</option>
+                    </select>
+                    <span asp-validation-for="Genero" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="DataNascimento" class="control-label">Data Nascimento</label>
+                    <input asp-for="DataNascimento" class="form-control" />
+                    <span asp-validation-for="DataNascimento" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="CC" class="control-label"></label>
+                    <input asp-for="CC" class="form-control" />
+                    <span asp-validation-for="CC" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="NIF" class="control-label"></label>
+                    <input asp-for="NIF" class="form-control" />
+                    <span asp-validation-for="NIF" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="NSSocial" class="control-label"></label>
+                    <input asp-for="NSSocial" class="form-control" />
+                    <span asp-validation-for="NSSocial" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="SeguroSaude" class="control-label">Seguro Saude</label>
+                    <input asp-for="SeguroSaude" class="form-control" />
+                    <span asp-validation-for="SeguroSaude" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-5">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="Telefone" class="control-label"></label>
+                    <input asp-for="Telefone" class="form-control" />
+                    <span asp-validation-for="Telefone" class="text-danger"></span>
+                </div>
+                <div class="col-5">
+                    <label asp-for="Foto" class="control-label"></label>
+                    <input asp-for="Foto" class="form-control" />
+                    <span asp-validation-for="Foto" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-9">
+                    <label asp-for="Rua" class="control-label"></label>
+                    <input asp-for="Rua" class="form-control" />
+                    <span asp-validation-for="Rua" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="CPostal" class="control-label"></label>
+                    <input asp-for="CPostal" class="form-control" />
+                    <span asp-validation-for="CPostal" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="Concelho" class="control-label"></label>
+                    <input asp-for="Concelho" class="form-control" />
+                    <span asp-validation-for="Concelho" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="Localidade" class="control-label"></label>
+                    <input asp-for="Localidade" class="form-control" />
+                    <span asp-validation-for="Localidade" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="Pais" class="control-label">País</label>
+                    <input asp-for="Pais" class="form-control" />
+                    <span asp-validation-for="Pais" class="text-danger"></span>
+                </div>
+                <div class="col-3">
+                    <label asp-for="Nacionalidade" class="control-label"></label>
+                    <input asp-for="Nacionalidade" class="form-control" />
+                    <span asp-validation-for="Nacionalidade" class="text-danger"></span>
+                </div>
+            </div>
+            <hr />
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <a asp-action="Index" asp-route-ativo="true" class="btn btn-light btn-icon-split">
+                    <span class="icon text-black-50">
+                        <i class="fas fa-reply-all"></i>
+                    </span>
+                    <span class="text">Voltar</span>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
